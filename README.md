@@ -38,13 +38,11 @@ This project focuses on learning and implementing fundamental and intermediate A
 - Room Database Integration
 - RecyclerView-based Data Display
 
- ## 📸 Application Screenshots
-
-Explore the user interface of UIDesignLab.
+## 📸 Application Screenshots
 
 | Home Screen | Dashboard Screen | Settings Screen |
 |:---:|:---:|:---:|
-| ![Home](screenshots/home.png) | ![Dashboard](screenshots/dashboard.png) | ![Settings](screenshots/settings.png) |
+| ![Home](./Screenshot%202026-11-10%20095639.png) | ![Dashboard](./Screenshot%202026-11-10%20095707.png) | ![Settings](./Screenshot%202026-11-10%20095757.png) |
 
  🚀 Development Status
 
