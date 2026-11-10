@@ -40,7 +40,7 @@ This project focuses on learning and implementing fundamental and intermediate A
 
 ## 📸 Application Screenshots
 
-| Home Screen | Dashboard Screen | Settings Screen |
+| Home Screen/ Dashboard Screen |note screen  | Settings Screen |
 |:---:|:---:|:---:|
 | ![Home](./Screenshot%202026-11-10%20095639.png) | ![Dashboard](./Screenshot%202026-11-10%20095707.png) | ![Settings](./Screenshot%202026-11-10%20095757.png) |
 
