@@ -61,13 +61,13 @@ public class DashboardActivity extends AppCompatActivity
             Toast.makeText(
                     this,
                     getString(R.string.visit_count, visits),
-                    Toast.LENGTH_SHORT
-            ).show();
+                    Toast.LENGTH_SHORT).show();
         }
 
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
         Button btnWebsite = findViewById(R.id.btnWebsite);
 
+        // Website Button
         btnWebsite.setOnClickListener(v -> {
 
             Intent browserIntent = new Intent(
@@ -80,6 +80,7 @@ public class DashboardActivity extends AppCompatActivity
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        // Dashboard Topics
         List<String> items = new ArrayList<>();
 
         items.add("Activity");
@@ -95,7 +96,31 @@ public class DashboardActivity extends AppCompatActivity
         items.add("RecyclerView");
         items.add("Menu");
 
-        MyAdapter myAdapter = new MyAdapter(items);
+        // New Lab 08 Topic
+        items.add("Background Threads");
+
+        // RecyclerView Adapter
+        MyAdapter myAdapter = new MyAdapter(items, item -> {
+
+            if (item.equals("Background Threads")) {
+
+                Intent intent = new Intent(
+                        DashboardActivity.this,
+                        BackgroundActivity.class
+                );
+
+                startActivity(intent);
+
+            } else {
+
+                Toast.makeText(
+                        DashboardActivity.this,
+                        item + " Selected",
+                        Toast.LENGTH_SHORT
+                ).show();
+            }
+
+        });
 
         recyclerView.setAdapter(myAdapter);
 
@@ -118,6 +143,7 @@ public class DashboardActivity extends AppCompatActivity
             transaction.commit();
         }
 
+        // Window Insets
         ViewCompat.setOnApplyWindowInsetsListener(
                 findViewById(R.id.main),
                 (v, insets) -> {
@@ -187,6 +213,17 @@ public class DashboardActivity extends AppCompatActivity
             Intent intent = new Intent(
                     DashboardActivity.this,
                     UsersActivity.class
+            );
+
+            startActivity(intent);
+
+            return true;
+
+        } else if (id == R.id.action_cloud) {
+
+            Intent intent = new Intent(
+                    DashboardActivity.this,
+                    CloudActivity.class
             );
 
             startActivity(intent);

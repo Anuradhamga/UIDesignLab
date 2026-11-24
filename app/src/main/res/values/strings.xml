@@ -29,5 +29,12 @@
     <string name="clear_all">Clear All</string>
     <string name="read_provider">Read Provider</string>
     <string name="menu_users">Saved Users</string>
+    <string name="bg_title">Background Work</string>
+    <string name="status_idle">Press a button to start</string>
+    <string name="start_heavy">Start Heavy Task</string>
+    <string name="freeze_ui">Freeze the UI (bad example)</string>
+    <string name="start_service">Start Download Service</string>
+    <string name="start_leaky">Start Leaky Task</string>
+    <string name="menu_background">Background Work</string>
 
 </resources>

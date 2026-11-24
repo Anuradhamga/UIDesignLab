@@ -13,9 +13,19 @@ import java.util.List;
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     private final List<String> items;
+    private final OnItemClickListener listener;
+
+    public interface OnItemClickListener {
+        void onItemClick(String item);
+    }
 
     public MyAdapter(List<String> items) {
+        this(items, null);
+    }
+
+    public MyAdapter(List<String> items, OnItemClickListener listener) {
         this.items = items;
+        this.listener = listener;
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
@@ -40,7 +50,18 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.txtItem.setText(items.get(position));
+
+        String item = items.get(position);
+
+        holder.txtItem.setText(item);
+
+        holder.itemView.setOnClickListener(v -> {
+
+            if (listener != null) {
+                listener.onItemClick(item);
+            }
+
+        });
     }
 
     @Override

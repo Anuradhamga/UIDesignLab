@@ -7,14 +7,13 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.util.Log;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-import android.util.Log;
-
 
 public class MainActivity extends AppCompatActivity {
 
@@ -47,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
         // Find Views
         EditText editUsername = findViewById(R.id.editUsername);
         Button btnSave = findViewById(R.id.btnSave);
+        Button btnBackground = findViewById(R.id.btnBackground);
         CheckBox chkRemember = findViewById(R.id.chkRemember);
 
         // SharedPreferences
@@ -90,20 +90,22 @@ public class MainActivity extends AppCompatActivity {
 
                     editor.remove(KEY_USERNAME);
                     editor.putBoolean(KEY_REMEMBER, false);
-
                 }
 
                 editor.apply();
+
                 final String nameToSave = userName;
 
+                // Room Database Insert
                 AppDatabase.databaseExecutor.execute(() -> {
 
-                    long id = AppDatabase.getInstance(getApplicationContext())
+                    long id = AppDatabase.getInstance(
+                                    getApplicationContext())
                             .userDao()
                             .insert(new UserRecord(nameToSave));
 
-                    Log.d("RoomLab", "Inserted " + nameToSave + ", id = " + id);
-
+                    Log.d("RoomLab",
+                            "Inserted " + nameToSave + ", id = " + id);
                 });
 
                 // Open Dashboard
@@ -115,12 +117,21 @@ public class MainActivity extends AppCompatActivity {
 
                 startActivity(intent);
 
-                // Success Toast
                 Toast.makeText(
                         MainActivity.this,
                         "Profile Saved: " + userName,
                         Toast.LENGTH_SHORT).show();
             }
+        });
+
+        // Background Threads Button
+        btnBackground.setOnClickListener(v -> {
+
+            Intent intent = new Intent(
+                    MainActivity.this,
+                    BackgroundActivity.class);
+
+            startActivity(intent);
         });
     }
 }

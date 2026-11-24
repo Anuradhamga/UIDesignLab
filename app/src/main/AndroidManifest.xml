@@ -1,6 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+
+
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Internet Permission for Firebase -->
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -11,31 +15,52 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.UIDesignLab">
+
+        <activity
+            android:name=".BackgroundActivity"
+            android:exported="false" />
+
+        <service
+            android:name=".DownloadService"
+            android:enabled="true"
+            android:exported="false" />
+
+        <activity
+            android:name=".CloudActivity"
+            android:exported="false" />
+
         <provider
             android:name=".UserProvider"
             android:authorities="com.example.uidesignlab.provider"
             android:exported="true" />
+
         <activity
             android:name=".UsersActivity"
             android:exported="false" />
+
         <activity
             android:name=".NotesActivity"
             android:exported="false" />
+
         <activity
             android:name=".TaskListActivity"
             android:exported="false" />
+
         <activity
             android:name=".DashboardActivity"
             android:exported="false" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
+
     </application>
 
 </manifest>

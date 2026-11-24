@@ -18,13 +18,20 @@
         android:id="@+id/action_swap"
         android:title="@string/menu_swap"
         app:showAsAction="never" />
+
     <item
         android:id="@+id/action_notes"
         android:title="@string/menu_notes"
         app:showAsAction="never" />
+
     <item
         android:id="@+id/action_users"
         android:title="@string/menu_users"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_cloud"
+        android:title="Cloud Users"
         app:showAsAction="never" />
 
 </menu>
